@@ -1,0 +1,186 @@
+.main-feed {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-right: 8px; /* For scrollbar */
+}
+
+.feed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.feed-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.feed-title {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.feed-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.view-toggles {
+  display: flex;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 4px;
+}
+
+.view-btn {
+  padding: 6px 12px;
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+}
+
+.view-btn.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.view-btn:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+.feed-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary-light);
+}
+
+.filter-chip.active {
+  background-color: var(--bg-surface);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* 에디터나 패널 열렸을 때 피드 컴팩트 */
+.panel-open .feed-header {
+  margin-bottom: 16px;
+}
+
+.panel-open .feed-title {
+  font-size: 18px;
+}
+
+.panel-open .feed-filters {
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.panel-open .filter-chip {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.panel-open .cards-container {
+  gap: 12px;
+}
+
+.panel-open .feed-controls .btn-primary {
+  display: none;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.empty-state .btn-primary {
+  padding: 12px 24px;
+  font-size: 15px;
+}
+
+.main-feed.graph-mode {
+  overflow: hidden;
+}
+
+/* 뷰 모드별 컨테이너 조정 */
+.view-list .cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.view-gallery .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.view-grid .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.main-feed.graph-mode .feed-filters {
+  display: none;
+}
+

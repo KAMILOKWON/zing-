@@ -1,0 +1,64 @@
+.slash-menu {
+  position: fixed;
+  width: 200px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  z-index: 10001;
+  padding: 6px;
+  animation: menuFadeIn 0.15s ease-out;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slash-menu-header {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 8px 12px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.slash-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.1s;
+  text-align: left;
+}
+
+.slash-menu-item.active {
+  background-color: var(--bg-base);
+  color: var(--primary);
+}
+
+.item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+  color: var(--text-secondary);
+}
+
+.slash-menu-item.active .item-icon {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.item-label {
+  flex: 1;
+}

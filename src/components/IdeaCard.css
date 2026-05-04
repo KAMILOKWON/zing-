@@ -1,0 +1,392 @@
+.idea-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 에디터나 상세 뷰가 열렸을 때 컴팩트 모드 */
+.panel-open .idea-card {
+  padding: 14px;
+  gap: 10px;
+  border-radius: var(--radius-lg);
+}
+
+.panel-open .card-title {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.panel-open .card-desc {
+  font-size: 13px;
+  margin-bottom: 6px;
+  -webkit-line-clamp: 1;
+}
+
+.panel-open .card-image-wrapper {
+  display: none;
+}
+
+.panel-open .card-body {
+  gap: 12px;
+}
+
+.panel-open .card-footer {
+  margin-top: 4px;
+  padding-top: 10px;
+}
+
+.panel-open .footer-actions-left {
+  gap: 8px;
+}
+
+.panel-open .action-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.panel-open .card-tag {
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.idea-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: #CBD5E1;
+}
+
+.idea-card.theme-gradient {
+  background: linear-gradient(to bottom right, #F8FAFC, #EDF2FE);
+  border-color: #BFDBFE;
+}
+
+.idea-card.theme-blue {
+  background-color: #EFF6FF;
+  border-color: #BFDBFE;
+}
+
+.idea-card.theme-purple {
+  background-color: #F5F3FF;
+  border-color: #DDD6FE;
+}
+
+.idea-card.theme-orange {
+  background-color: #FFF7ED;
+  border-color: #FED7AA;
+}
+
+.idea-card.theme-green {
+  background-color: #ECFDF5;
+  border-color: #A7F3D0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-tag {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+}
+
+.more-btn-card {
+  color: var(--text-secondary);
+  padding: 4px;
+}
+
+.more-btn-card:hover {
+  color: var(--text-primary);
+}
+
+/* 카드 드롭다운 메뉴 */
+.card-more-wrapper {
+  position: relative;
+}
+
+.card-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 4px;
+  z-index: 100;
+  min-width: 120px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.menu-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.menu-item-btn:hover {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+.menu-item-btn.delete {
+  color: #EF4444;
+}
+
+.menu-item-btn.delete:hover {
+  background-color: #FEF2F2;
+}
+
+.card-body {
+  display: flex;
+  gap: 24px;
+  cursor: pointer;
+}
+
+.card-content-left {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.card-desc {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.author-avatar {
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-base);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.author-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dot-sep {
+  color: var(--border-color);
+}
+
+.card-image-wrapper {
+  width: 140px;
+  height: 90px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-actions-left {
+  display: flex;
+  gap: 16px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-base);
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #E2E8F0;
+  color: var(--text-primary);
+}
+
+.action-btn.active {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.action-btn.active .fill-current {
+  fill: currentColor;
+}
+
+.action-remix {
+  color: var(--accent-blue);
+  background-color: #E0F2FE;
+}
+
+.action-remix:hover {
+  background-color: #BAE6FD;
+  color: #0284C7;
+}
+
+.bookmark-btn {
+  color: var(--text-secondary);
+  padding: 8px;
+}
+
+.bookmark-btn:hover {
+  color: var(--primary);
+}
+/* 리스트 뷰 전용 스타일 */
+.view-list .idea-card {
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.view-list .card-header {
+  display: none; /* 리스트에서는 태그 숨김 (또는 제목 옆에 배치 가능) */
+}
+
+.view-list .card-body {
+  flex: 1;
+  gap: 16px;
+  align-items: center;
+}
+
+.view-list .card-desc {
+  display: none; /* 리스트에서는 설명 숨김 */
+}
+
+.view-list .card-title {
+  margin-bottom: 0;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
+
+.view-list .card-image-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.view-list .card-footer {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  border-left: 1px solid var(--border-color);
+  padding-left: 16px;
+}
+
+/* 갤러리 뷰 전용 스타일 */
+.view-gallery .idea-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.view-gallery .card-body {
+  flex-direction: column;
+  gap: 0;
+}
+
+.view-gallery .card-image-wrapper {
+  width: 100%;
+  height: 240px;
+  border-radius: 0;
+  order: -1; /* 이미지를 상단으로 올림 */
+}
+
+.view-gallery .card-content-left {
+  padding: 24px 20px 20px;
+  order: 1;
+}
+
+.view-gallery .card-header {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+}
+
+.view-gallery .card-tag {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  backdrop-filter: blur(4px);
+}
+
+/* 이미지가 없는 경우 태그를 일반 흐름으로 배치하여 겹침 방지 */
+.view-gallery .idea-card.no-image .card-header {
+  position: static;
+  padding: 20px 20px 0;
+}
+
+.view-gallery .idea-card.no-image .card-content-left {
+  padding-top: 12px;
+}
+
+.view-gallery .card-content-left {
+  padding: 20px;
+  order: 1;
+}
+
+.view-gallery .card-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.view-gallery .card-footer {
+  padding: 12px 20px 20px;
+  margin-top: 0;
+}

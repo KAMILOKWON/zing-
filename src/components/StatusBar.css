@@ -1,0 +1,55 @@
+.status-bar {
+  height: 32px;
+  background-color: #1F2937;
+  color: #9CA3AF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 11px;
+  font-weight: 600;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  user-select: none;
+}
+
+.status-left, .status-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.system-badge {
+  color: #FBBF24;
+}
+
+.status-message {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.status-clock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  margin-left: 8px;
+}
+
+.status-item span {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .status-center { display: none; }
+}

@@ -1,0 +1,94 @@
+.notification-view {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.nv-header h1 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.nv-mark-all {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nv-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s;
+  position: relative;
+}
+
+.nv-item:hover {
+  border-color: var(--primary-light);
+  background-color: #F8FAFC;
+}
+
+.nv-item.unread {
+  background-color: #F0F7FF;
+  border-color: #BFDBFE;
+}
+
+.nv-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nv-content {
+  flex: 1;
+}
+
+.nv-text {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.nv-time {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.nv-unread-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+.nv-empty-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}

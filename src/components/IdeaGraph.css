@@ -1,0 +1,71 @@
+.idea-graph-container {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.graph-node {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.graph-node:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.main-node {
+  border-color: #3A75F6;
+  border-width: 2px;
+}
+
+.remix-node {
+  border-left: 4px solid var(--primary);
+}
+
+.ai-node {
+  border: 1px dashed #10B981;
+  background-color: #ECFDF5;
+}
+
+.node-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+}
+
+.graph-node strong {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.graph-node span {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.react-flow__attribution {
+  background: transparent !important;
+  font-size: 10px;
+  opacity: 0.5;
+}
