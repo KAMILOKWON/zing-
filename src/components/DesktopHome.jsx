@@ -30,8 +30,17 @@ const DesktopHome = ({ onIdeaClick, onNewIdea }) => {
         </div>
       <header className="home-hero">
         <div className="hero-content">
-          <h1>안녕하세요, Zingger님! 👋</h1>
-          <p>오늘도 당신의 반짝이는 아이디어를 기록하고 연결해보세요.</p>
+          {user ? (
+            <>
+              <h1>안녕하세요, {user.user_metadata?.handle || 'Zingger'}님! 👋</h1>
+              <p>오늘도 당신의 반짝이는 아이디어를 기록하고 연결해보세요.</p>
+            </>
+          ) : (
+            <>
+              <h1>반가워요! 당신의 영감을 기록할 준비가 되셨나요? ✨</h1>
+              <p>Zing!에 가입하고 나만의 아이디어 운영체제를 시작해보세요.</p>
+            </>
+          )}
         </div>
       </header>
 
