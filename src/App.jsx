@@ -143,6 +143,7 @@ function App() {
         <Sidebar 
           isCollapsed={isSidebarCollapsed} 
           onIdeaClick={openDetail}
+          onLoginClick={() => setIsAuthModalOpen(true)}
         />
       )}
       <div className="main-content">

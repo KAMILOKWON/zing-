@@ -3,17 +3,20 @@ import { Home, Compass, Sparkles, Bell, User, Settings, Folder, Plus, FileText, 
 import useStore from '../store/useStore';
 import './Sidebar.css';
 
-const Sidebar = ({ isCollapsed, onIdeaClick }) => {
+const Sidebar = ({ isCollapsed, onIdeaClick, onLoginClick }) => {
   const ideas = useStore(state => state.ideas);
+  const user = useStore(state => state.user);
   const filter = useStore(state => state.filter);
   const setFilter = useStore(state => state.setFilter);
   const activeTab = useStore(state => state.activeTab);
   const setActiveTab = useStore(state => state.setActiveTab);
-  const folders = useStore(state => state.folders);
+  const getFolders = useStore(state => state.getFolders);
   const addFolder = useStore(state => state.addFolder);
   const deleteFolder = useStore(state => state.deleteFolder);
   const recentViewedIds = useStore(state => state.recentViewedIds);
   const isAdmin = useStore(state => state.isAdmin);
+
+  const folders = getFolders();
 
   const [isAddingFolder, setIsAddingFolder] = React.useState(false);
   const [newFolderName, setNewFolderName] = React.useState('');
@@ -113,7 +116,13 @@ const Sidebar = ({ isCollapsed, onIdeaClick }) => {
               <h3 className="section-title">폴더</h3>
               <button 
                 className="add-btn" 
-                onClick={() => setIsAddingFolder(true)}
+                onClick={() => {
+                  if (!user) {
+                    onLoginClick();
+                    return;
+                  }
+                  setIsAddingFolder(true);
+                }}
               >
                 <Plus size={14} />
               </button>
@@ -166,6 +175,10 @@ const Sidebar = ({ isCollapsed, onIdeaClick }) => {
                   onClick={(e) => {
                     e.stopPropagation();
                     e.preventDefault();
+                    if (!user) {
+                      onLoginClick();
+                      return;
+                    }
                     deleteFolder(folder.label);
                   }}
                 >

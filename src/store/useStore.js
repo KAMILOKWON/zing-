@@ -101,15 +101,42 @@ const useStore = create(
       handshakes: [],
       recentViewedIds: [],
       bookmarkedIds: [],
-      folders: [
-        { id: 'random', label: '아무말', emoji: '💬' },
-        { id: 'product', label: '제품 아이디어', emoji: '💡' },
-        { id: 'creative', label: '창작', emoji: '🎨' },
-        { id: 'problem', label: '문제 발견', emoji: '🔍' },
-        { id: 'ai', label: 'AI', emoji: '🤖' },
-        { id: 'daily', label: '일상', emoji: '🌱' }
-      ],
+      // 기본 폴더 (비회원/초기 상태용)
+      userFolders: {}, // { [userId]: [...folders] }
       
+      // 현재 사용자의 폴더 반환
+      getFolders: () => {
+        const user = get().user;
+        if (!user) {
+          return [
+            { id: 'random', label: '아무말', emoji: '💬' },
+            { id: 'product', label: '제품 아이디어', emoji: '💡' },
+            { id: 'creative', label: '창작', emoji: '🎨' },
+            { id: 'problem', label: '문제 발견', emoji: '🔍' },
+            { id: 'ai', label: 'AI', emoji: '🤖' },
+            { id: 'daily', label: '일상', emoji: '🌱' }
+          ];
+        }
+        const userId = user.id;
+        const folders = get().userFolders[userId];
+        if (!folders) {
+          // 첫 로그인 시 기본 폴더 복사
+          const defaultFolders = [
+            { id: 'random', label: '아무말', emoji: '💬' },
+            { id: 'product', label: '제품 아이디어', emoji: '💡' },
+            { id: 'creative', label: '창작', emoji: '🎨' },
+            { id: 'problem', label: '문제 발견', emoji: '🔍' },
+            { id: 'ai', label: 'AI', emoji: '🤖' },
+            { id: 'daily', label: '일상', emoji: '🌱' }
+          ];
+          set((state) => ({
+            userFolders: { ...state.userFolders, [userId]: defaultFolders }
+          }));
+          return defaultFolders;
+        }
+        return folders;
+      },
+
       setActiveTab: (tab) => set({ activeTab: tab, filter: '전체', communityFilter: '전체' }),
       setFilter: (filter) => set({ filter, communityFilter: '전체' }),
       setCommunityFilter: (community) => set({ communityFilter: community, filter: '전체' }),
@@ -121,13 +148,33 @@ const useStore = create(
           : [...state.bookmarkedIds, ideaId]
       })),
 
-      addFolder: (label, emoji) => set((state) => ({
-        folders: [...state.folders, { id: Date.now(), label, emoji }]
-      })),
+      addFolder: (label, emoji) => {
+        const user = get().user;
+        if (!user) return false;
+        const userId = user.id;
+        const currentFolders = get().userFolders[userId] || [];
+        set((state) => ({
+          userFolders: {
+            ...state.userFolders,
+            [userId]: [...currentFolders, { id: Date.now(), label, emoji }]
+          }
+        }));
+        return true;
+      },
 
-      deleteFolder: (label) => set((state) => ({
-        folders: state.folders.filter(f => f.label !== label)
-      })),
+      deleteFolder: (label) => {
+        const user = get().user;
+        if (!user) return false;
+        const userId = user.id;
+        const currentFolders = get().userFolders[userId] || [];
+        set((state) => ({
+          userFolders: {
+            ...state.userFolders,
+            [userId]: currentFolders.filter(f => f.label !== label)
+          }
+        }));
+        return true;
+      },
       
       addToRecent: (ideaId) => set((state) => ({
         recentViewedIds: [ideaId, ...state.recentViewedIds.filter(id => id !== ideaId)].slice(0, 10)
