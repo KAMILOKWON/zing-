@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Heart, X, MessageSquare, Repeat2, Bookmark, ChevronUp, ChevronDown, Check, XCircle } from 'lucide-react';
+import { Heart, X, MessageSquare, Repeat2, Bookmark, ChevronUp, ChevronDown, Check, XCircle, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import useStore from '../store/useStore';
 import './ExploreView.css';
