@@ -5,6 +5,7 @@ import './DesktopHome.css';
 
 const DesktopHome = ({ onIdeaClick, onNewIdea }) => {
   const ideas = useStore(state => state.ideas);
+  const user = useStore(state => state.user);
   const recentViewedIds = useStore(state => state.recentViewedIds);
   const setActiveTab = useStore(state => state.setActiveTab);
   const setSortMode = useStore(state => state.setSortMode);
@@ -23,11 +24,6 @@ const DesktopHome = ({ onIdeaClick, onNewIdea }) => {
 
   return (
     <div className="desktop-home">
-      <header className="home-hero">
-        <div className="hero-content">
-          <h1>안녕하세요, Zingger님! 👋</h1>
-          <p>오늘도 당신의 반짝이는 아이디어를 기록하고 연결해보세요.</p>
-        </div>
       <header className="home-hero">
         <div className="hero-content">
           {user ? (
@@ -123,8 +119,6 @@ const DesktopHome = ({ onIdeaClick, onNewIdea }) => {
             </section>
           </>
         )}
-      </div>
-
       </div>
     </div>
   );
