@@ -13,6 +13,7 @@ import DesktopHome from './components/DesktopHome'
 import AdminDashboard from './components/AdminDashboard'
 import SettingsView from './components/SettingsView'
 import AuthModal from './components/AuthModal'
+import MobileNav from './components/MobileNav'
 import { supabase } from './lib/supabase'
 import './App.css'
 
@@ -193,6 +194,8 @@ function App() {
       {isAuthModalOpen && (
         <AuthModal onClose={() => setIsAuthModalOpen(false)} />
       )}
+
+      <MobileNav onNewIdea={() => openEditor(null)} />
     </div>
   )
 }
