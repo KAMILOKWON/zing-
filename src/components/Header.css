@@ -132,6 +132,7 @@
   font-size: 13px;
   font-weight: 700;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .login-trigger-btn:hover {

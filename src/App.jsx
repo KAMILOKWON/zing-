@@ -37,11 +37,14 @@ function App() {
   const [isZenMode, setIsZenMode] = useState(false);
 
   useEffect(() => {
-    // 세션 초기화
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    // 세션 초기화 및 상태 변경 감지
+    const initAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
       setSession(session);
       setUser(session?.user ?? null);
-    });
+    };
+
+    initAuth();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
