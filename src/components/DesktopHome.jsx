@@ -28,7 +28,7 @@ const DesktopHome = ({ onIdeaClick, onNewIdea }) => {
         <div className="hero-content">
           {user ? (
             <>
-              <h1>안녕하세요, {user.user_metadata?.handle || 'Zingger'}님! 👋</h1>
+              <h1>안녕하세요, {user.user_metadata?.handle || user.email?.split('@')[0] || 'Zingger'}님! 👋</h1>
               <p>오늘도 당신의 반짝이는 아이디어를 기록하고 연결해보세요.</p>
             </>
           ) : (

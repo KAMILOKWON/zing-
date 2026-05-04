@@ -137,7 +137,23 @@
   }
 
   .hero-content h1 {
-    font-size: 22px;
+    font-size: 24px;
+    line-height: 1.3;
+    word-break: keep-all;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* 홈 섹션 간격 조정 */
+  .home-section {
+    gap: 12px;
+  }
+
+  .section-title h2 {
+    font-size: 16px;
   }
 
   .home-grid-layout {
@@ -214,5 +230,30 @@
   .auth-overlay .auth-modal {
     width: 90%;
     margin: 0 auto;
+  }
+
+  .welcome-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .file-icon-card {
+    width: 100px;
+  }
+
+  .file-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+  }
+
+  .compact-item {
+    padding: 14px 16px;
+  }
+
+  .item-title {
+    font-size: 13px;
   }
 }
