@@ -28,9 +28,10 @@ const DesktopHome = ({ onIdeaClick, onNewIdea }) => {
           <h1>안녕하세요, Zingger님! 👋</h1>
           <p>오늘도 당신의 반짝이는 아이디어를 기록하고 연결해보세요.</p>
         </div>
-        <div className="ai-status-widget">
-          <div className="ai-badge"><Sparkles size={14} /> Zingger AI Active</div>
-          <p>"현재 #제품디자인 분야에서 리믹스가 활발해요!"</p>
+      <header className="home-hero">
+        <div className="hero-content">
+          <h1>안녕하세요, Zingger님! 👋</h1>
+          <p>오늘도 당신의 반짝이는 아이디어를 기록하고 연결해보세요.</p>
         </div>
       </header>
 
@@ -115,22 +116,6 @@ const DesktopHome = ({ onIdeaClick, onNewIdea }) => {
         )}
       </div>
 
-      <div className="zingger-ai-box">
-        <div className="ai-box-header">
-          <Sparkles size={18} />
-          <span>징거 AI 브리핑</span>
-        </div>
-        <div className="ai-box-content">
-          {ideas.length === 0 ? (
-            <p>Zingger AI가 당신의 첫 아이디어를 기다리고 있어요. 아이디어를 작성하면 분석과 리믹스 제안을 시작할게요!</p>
-          ) : (
-            <p>오늘 커뮤니티에는 <strong>{ideas.length}개</strong>의 새로운 영감이 쌓였어요. <strong>{popularIdeas[0]?.title}</strong> 게시글이 가장 뜨거운 반응을 얻고 있네요!</p>
-          )}
-          <div className="ai-actions">
-            <button className="ai-action-btn" onClick={() => setActiveTab('explore')}>내 관심사 분석</button>
-            <button className="ai-action-btn" onClick={() => setActiveTab('feed')}>최신 트렌드 보기</button>
-          </div>
-        </div>
       </div>
     </div>
   );
