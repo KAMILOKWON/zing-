@@ -124,18 +124,13 @@
   background: var(--primary-light);
 }
 
-.login-trigger-btn {
-  background: var(--bg-base);
+.login-btn {
   color: var(--primary);
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  transition: all 0.2s;
-  white-space: nowrap;
+  background: var(--primary-light);
+  border-color: var(--primary-light);
 }
 
-.login-trigger-btn:hover {
+.login-btn:hover {
   background: var(--primary);
   color: white;
 }

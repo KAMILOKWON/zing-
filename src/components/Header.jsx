@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Bell, Plus, Minus, Square, X } from 'lucide-react';
+import { Search, Bell, Plus, Minus, Square, X, User } from 'lucide-react';
 import NotificationDropdown from './NotificationDropdown';
 import useStore from '../store/useStore';
 import './Header.css';
@@ -51,8 +51,8 @@ const Header = ({ onNewIdea, onLoginClick, onToggleSidebar, onToggleZenMode, onC
               </div>
             </div>
           ) : (
-            <button className="login-trigger-btn" onClick={onLoginClick}>
-              로그인
+            <button className="icon-btn login-btn" onClick={onLoginClick} title="로그인">
+              <User size={20} />
             </button>
           )}
         </div>

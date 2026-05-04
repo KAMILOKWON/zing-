@@ -132,7 +132,16 @@ function App() {
       case 'admin':
         return <AdminDashboard />;
       case 'settings':
-        return <SettingsView />;
+        return user ? <SettingsView /> : (
+          <div className="login-prompt-view">
+            <div className="prompt-content">
+              <div className="prompt-icon">👤</div>
+              <h2>로그인이 필요합니다</h2>
+              <p>Zing!의 모든 기능을 이용하려면 로그인이 필요해요.</p>
+              <button className="btn-primary" onClick={() => setIsAuthModalOpen(true)}>로그인하기</button>
+            </div>
+          </div>
+        );
       case 'profile':
         return <div className="placeholder-view"><h1>프로필 페이지 준비 중...</h1></div>;
       default:
