@@ -33,7 +33,7 @@ const Header = ({ onNewIdea, onLoginClick, onToggleSidebar, onToggleZenMode, onC
         
         <button className="btn-primary" onClick={onNewIdea}>
           <Plus size={16} />
-          <span>새 아이디어</span>
+          <span className="btn-text">새 아이디어</span>
         </button>
         
         <div className="action-icons">
