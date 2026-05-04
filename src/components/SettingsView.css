@@ -180,3 +180,82 @@
 .toggle-switch.active::after {
   transform: translateX(20px);
 }
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-handle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.profile-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 8px;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edit-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.edit-field input {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.edit-field input:focus {
+  border-color: var(--primary);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.save-btn {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+}
+
+.cancel-btn {
+  padding: 10px 20px;
+  background: var(--bg-base);
+  color: var(--text-secondary);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.saved-icon {
+  color: #10B981;
+}
